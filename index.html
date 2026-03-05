@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User QR</title>
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:50px;
+}
+
+#qr{
+width:300px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Your Loyalty QR</h2>
+
+<img id="qr"/>
+
+<script>
+
+fetch("http://localhost:3000/generate-qr/1")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("qr").src=data.qr
+})
+
+</script>
+
+</body>
+</html>
